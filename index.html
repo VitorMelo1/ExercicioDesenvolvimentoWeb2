@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Completo - Aulas 03 e 04</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Formulário de Cadastro Completo</h1>
+            <p>Demonstração dos conceitos das Aulas 03 (Formulários HTML) e 04 (CSS)</p>
+        </header>
+
+        <form action="processar.php" method="post" class="main-form">
+            <!-- Campo Hidden -->
+            <input type="hidden" name="form_id" value="cadastro_2024">
+            
+            <!-- Fieldset 1: Informações Pessoais -->
+            <fieldset class="form-section">
+                <legend>Informações Pessoais</legend>
+                
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" size="30" maxlength="100" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="text" id="email" name="email" size="25" maxlength="50" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" size="20" maxlength="20" placeholder="Mínimo 8 caracteres" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" min="18" max="100" step="1" value="25" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="peso">Peso (kg):</label>
+                    <input type="number" id="peso" name="peso" min="30" max="200" step="0.1" placeholder="Ex: 70.5">
+                </div>
+            </fieldset>
+
+            <!-- Fieldset 2: Gênero (Radio Buttons) -->
+            <fieldset class="form-section">
+                <legend>Gênero</legend>
+                <div class="radio-group">
+                    <input type="radio" id="masculino" name="genero" value="masculino">
+                    <label for="masculino">Masculino</label>
+                    
+                    <input type="radio" id="feminino" name="genero" value="feminino">
+                    <label for="feminino">Feminino</label>
+                    
+                    <input type="radio" id="outro" name="genero" value="outro">
+                    <label for="outro">Outro</label>
+                </div>
+            </fieldset>
+
+
+            <fieldset class="form-section">
+                <legend>Interesses</legend>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="tecnologia" name="interesses[]" value="tecnologia">
+                    <label for="tecnologia">Tecnologia</label>
+                    
+                    <input type="checkbox" id="esportes" name="interesses[]" value="esportes">
+                    <label for="esportes">Esportes</label>
+                    
+                    <input type="checkbox" id="musica" name="interesses[]" value="musica">
+                    <label for="musica">Música</label>
+                    
+                    <input type="checkbox" id="viagem" name="interesses[]" value="viagem">
+                    <label for="viagem">Viagem</label>
+                    
+                    <input type="checkbox" id="leitura" name="interesses[]" value="leitura">
+                    <label for="leitura">Leitura</label>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>Comentários Adicionais</legend>
+                <div class="form-group">
+                    <label for="comentarios">Conte-nos mais sobre você:</label>
+                    <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Escreva aqui seus comentários, experiências ou qualquer informação adicional que considere relevante..."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>Estado Civil</legend>
+                <div class="form-group">
+                    <label for="estado_civil">Selecione seu estado civil:</label>
+                    <select id="estado_civil" name="estado_civil" required>
+                        <option value="">-- Selecione uma opção --</option>
+                        <option value="solteiro">Solteiro(a)</option>
+                        <option value="casado">Casado(a)</option>
+                        <option value="divorciado">Divorciado(a)</option>
+                        <option value="viuvo">Viúvo(a)</option>
+                        <option value="uniao_estavel">União Estável</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>Idiomas que você fala</legend>
+                <div class="form-group">
+                    <label for="idiomas">Selecione todos os idiomas que você fala:</label>
+                    <select id="idiomas" name="idiomas[]" multiple size="4">
+                        <option value="portugues">Português</option>
+                        <option value="ingles">Inglês</option>
+                        <option value="espanhol">Espanhol</option>
+                        <option value="frances">Francês</option>
+                        <option value="alemao">Alemão</option>
+                        <option value="italiano">Italiano</option>
+                        <option value="japones">Japonês</option>
+                        <option value="mandarim">Mandarim</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>Campos Especiais</legend>
+                
+                <div class="form-group">
+                    <label for="campo_readonly">Campo somente leitura:</label>
+                    <input type="text" id="campo_readonly" name="campo_readonly" value="Este campo não pode ser editado" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="campo_disabled">Campo desabilitado:</label>
+                    <input type="text" id="campo_disabled" name="campo_disabled" value="Este campo está desabilitado" disabled>
+                </div>
+            </fieldset>
+
+            <div class="button-group">
+                <input type="submit" value="Enviar Formulário" class="submit-btn">
+                <input type="reset" value="Limpar Formulário" class="reset-btn">
+            </div>
+        </form>
+
+
+        <section class="table-section">
+            <h2>Tabela de Exemplo com Efeito Hover</h2>
+            <table class="demo-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Cidade</th>
+                        <th>Profissão</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>João Silva</td>
+                        <td>28</td>
+                        <td>São Paulo</td>
+                        <td>Desenvolvedor</td>
+                    </tr>
+                    <tr>
+                        <td>Maria Santos</td>
+                        <td>32</td>
+                        <td>Rio de Janeiro</td>
+                        <td>Designer</td>
+                    </tr>
+                    <tr>
+                        <td>Pedro Costa</td>
+                        <td>25</td>
+                        <td>Belo Horizonte</td>
+                        <td>Analista</td>
+                    </tr>
+                    <tr>
+                        <td>Ana Oliveira</td>
+                        <td>30</td>
+                        <td>Porto Alegre</td>
+                        <td>Gerente</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>
